@@ -2,7 +2,6 @@
 
 import { WIZARD_STEPS } from "@/utils/enum";
 
-import { StepWrapper } from "../step-wrapper";
 import { useWizardState } from "@/lib/wizard-state";
 
 export const Wizard = () => {
@@ -13,14 +12,8 @@ export const Wizard = () => {
       <div>Steps Indicator</div>
 
       <div>
-        {WIZARD_STEPS.map(({ identifier, component: Component, ...rest }, index) => {
-          return (
-            currentStep === index && (
-              <StepWrapper key={identifier} {...rest}>
-                <Component />
-              </StepWrapper>
-            )
-          );
+        {WIZARD_STEPS.map(({ identifier, component: Component }, index) => {
+          return currentStep === index && <Component key={identifier} />;
         })}
       </div>
     </div>

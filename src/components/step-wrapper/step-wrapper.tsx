@@ -3,21 +3,31 @@ import { useForm, FormProvider } from "react-hook-form";
 import { useWizardState } from "@/lib/wizard-state";
 
 type StepWrapperProps = {
+  onNextStep?: (data: any) => void;
+
   children: React.ReactNode;
 };
 
-export const StepWrapper = ({ children }: StepWrapperProps) => {
+export const StepWrapper = ({
+  children,
+  onNextStep: handleNextStep,
+}: StepWrapperProps) => {
   const formMethods = useForm();
 
-  const { handleSubmit } = formMethods;
+  const {
+    handleSubmit: onSubmit,
+    formState: { isValid },
+  } = formMethods;
 
   const { nextStep, prevStep } = useWizardState((state) => ({
     nextStep: state.nextStep,
     prevStep: state.prevStep,
   }));
 
-  const handleNextStep = handleSubmit((data) => {
-    console.log(data);
+  const handleSubmit = onSubmit((data) => {
+    if (handleNextStep) {
+      handleNextStep(data);
+    }
 
     nextStep();
   });
@@ -34,7 +44,7 @@ export const StepWrapper = ({ children }: StepWrapperProps) => {
       </div>
 
       <FormProvider {...formMethods}>
-        <form onSubmit={handleNextStep}>
+        <form onSubmit={handleSubmit}>
           <div>{children}</div>
 
           <div>
