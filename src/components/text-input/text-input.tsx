@@ -7,11 +7,13 @@ import { ErrorMessage } from "@hookform/error-message";
 type TextInputProps = {
   label: React.ReactNode;
   validations?: RegisterOptions;
+  defaultValue: string;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 export const TextInput = ({
   label,
   name,
+  defaultValue,
   validations,
   ...inputProps
 }: TextInputProps) => {
@@ -24,7 +26,10 @@ export const TextInput = ({
     <label>
       <span>{label}</span>
 
-      <input {...register(name as string, validations)} {...inputProps} />
+      <input
+        {...register(name as string, { ...validations, value: defaultValue })}
+        {...inputProps}
+      />
 
       <ErrorMessage
         name={name as string}

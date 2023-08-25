@@ -14,10 +14,7 @@ export const StepWrapper = ({
 }: StepWrapperProps) => {
   const formMethods = useForm();
 
-  const {
-    handleSubmit: onSubmit,
-    formState: { isValid },
-  } = formMethods;
+  const { handleSubmit: onSubmit } = formMethods;
 
   const { nextStep, prevStep } = useWizardState((state) => ({
     nextStep: state.nextStep,

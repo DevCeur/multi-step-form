@@ -6,7 +6,8 @@ import { TextInput } from "@/components/text-input";
 import { StepWrapper } from "@/components/step-wrapper";
 
 export const PersonalInfoStep = () => {
-  const { updatePersonalInfo } = useWizardState((state) => ({
+  const { updatePersonalInfo, personalInfo } = useWizardState((state) => ({
+    personalInfo: state.formData.personalInfo,
     updatePersonalInfo: state.updatePersonalInfo,
   }));
 
@@ -20,12 +21,14 @@ export const PersonalInfoStep = () => {
         <TextInput
           label="Name"
           name="name"
+          defaultValue={personalInfo.name}
           validations={{ required: "Name is required" }}
         />
 
         <TextInput
           label="Email"
           name="email"
+          defaultValue={personalInfo.email}
           validations={{
             required: "Email is required",
             pattern: { value: EMAIL_REGEX, message: "This email is not valid" },
@@ -36,6 +39,7 @@ export const PersonalInfoStep = () => {
           type="tel"
           label="Phone Number"
           name="phoneNumber"
+          defaultValue={personalInfo.phoneNumber}
           validations={{ required: "Phone number is required" }}
         />
       </div>

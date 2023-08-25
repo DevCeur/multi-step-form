@@ -1,7 +1,9 @@
+import { StepWrapper } from "@/components/step-wrapper";
+
 export const SelectPlanStep = () => {
   return (
-    <div>
+    <StepWrapper>
       <span>Just Another Step</span>
-    </div>
+    </StepWrapper>
   );
 };
