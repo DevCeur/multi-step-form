@@ -1,7 +1,11 @@
+"use client";
+
+import { Wizard } from "@/components/wizard";
+
 export default function HomePage() {
   return (
     <main>
-      <h1>Wizard Form</h1>
+      <Wizard />
     </main>
   );
 }
