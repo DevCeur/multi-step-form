@@ -9,10 +9,10 @@ export const MultiStepForm = () => {
   const currentStep = useWizardState((state) => state.currentStep);
 
   return (
-    <div>
+    <div className="relative">
       <StepsIndicator />
 
-      <div>
+      <div className="absolute w-full h-screen">
         {MULTI_FORM_STEPS.map(({ identifier, component: Component }, index) => {
           return currentStep === index && <Component key={identifier} />;
         })}

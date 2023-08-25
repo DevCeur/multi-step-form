@@ -45,27 +45,45 @@ export const StepWrapper = ({
   };
 
   return (
-    <div>
-      {!isLastStep && (
-        <div>
-          <h2>{title}</h2>
-          <p>{description}</p>
-        </div>
-      )}
-
-      <FormProvider {...formMethods}>
-        <form onSubmit={handleSubmit}>
-          <div>{children}</div>
-
+    <FormProvider {...formMethods}>
+      <form
+        onSubmit={handleSubmit}
+        className="w-full h-full pt-28 px-4 flex flex-col justify-between"
+      >
+        <div className="px-6 py-8 bg-background-secondary rounded-xl shadow-default">
           {!isLastStep && (
-            <div>
-              {!isFirstStep && <button onClick={handlePrevStep}>Go Back</button>}
-
-              <input type="submit" value="Next Step" />
+            <div className="mb-6">
+              <h2 className="text-denim text-2xl font-bold mb-2">{title}</h2>
+              <p className="text-grey-default">{description}</p>
             </div>
           )}
-        </form>
-      </FormProvider>
-    </div>
+
+          <div>{children}</div>
+        </div>
+
+        {!isLastStep && (
+          <div
+            className={`-mx-4 p-4 bg-white flex ${
+              isFirstStep ? "justify-end" : "justify-between"
+            }`}
+          >
+            {!isFirstStep && (
+              <button
+                onClick={handlePrevStep}
+                className="text-grey-default text-sm font-medium"
+              >
+                Go Back
+              </button>
+            )}
+
+            <input
+              type="submit"
+              value="Next Step"
+              className="px-4 py-3 bg-denim text-white text-sm font-medium rounded-md"
+            />
+          </div>
+        )}
+      </form>
+    </FormProvider>
   );
 };
