@@ -48,12 +48,12 @@ export const StepWrapper = ({
     <FormProvider {...formMethods}>
       <form
         onSubmit={handleSubmit}
-        className="w-full h-full pt-28 px-4 flex flex-col justify-between"
+        className="w-full lg:max-w-lg lg:h-full pt-28 lg:pt-0 px-4 lg:px-0 mx-auto flex flex-col justify-between"
       >
-        <div className="px-6 py-8 bg-background-secondary rounded-xl shadow-default">
+        <div className="px-6 py-8 lg:pt-14 bg-background-secondary rounded-xl shadow-default lg:shadow-none">
           {!isLastStep && (
             <div className="mb-6">
-              <h2 className="text-denim text-2xl font-bold mb-2">{title}</h2>
+              <h2 className="text-denim text-2xl lg:text-4xl font-bold mb-2">{title}</h2>
               <p className="text-grey-default">{description}</p>
             </div>
           )}
@@ -79,7 +79,7 @@ export const StepWrapper = ({
             <input
               type="submit"
               value="Next Step"
-              className="px-4 py-3 bg-denim text-white text-sm font-medium rounded-md"
+              className="px-4 lg:px-6 py-3 lg:py-4 bg-denim text-white text-sm lg:text-base font-medium rounded-md cursor-pointer"
             />
           </div>
         )}

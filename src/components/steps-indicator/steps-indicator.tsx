@@ -6,7 +6,7 @@ export const StepsIndicator = () => {
   const { currentStep } = useWizardState((state) => ({ currentStep: state.currentStep }));
 
   return (
-    <div className="step-indicator absolute w-full h-44 pt-10 flex justify-center space-x-4">
+    <div className="step-indicator absolute lg:relative w-full lg:w-[274px] h-44 lg:h-full pt-10 flex justify-center space-x-4 lg:rounded-xl">
       {MULTI_FORM_STEPS.slice(0, -1).map(({ identifier }, index) => {
         const isActiveStep = currentStep === index;
         const showLastActive =
