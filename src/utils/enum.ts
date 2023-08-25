@@ -1,17 +1,27 @@
+import { FinishingUpStep } from "@/components/steps/finishing-up-step";
 import { PersonalInfoStep } from "@/components/steps/personal-info-step";
+import { PickAddOnsStep } from "@/components/steps/pick-add-ons-step";
 import { SelectPlanStep } from "@/components/steps/select-plan-step";
 
-export const WIZARD_STEPS = [
+export const MULTI_FORM_STEPS = [
   {
     identifier: "personal-info",
-    title: "Personal Info",
-    description: "Just the personal info step description",
     component: PersonalInfoStep,
   },
   {
     identifier: "select-plan",
-    title: "Select Plan",
-    description: "Just the select plan step description",
+    component: SelectPlanStep,
+  },
+  {
+    identifier: "pick-add-ons",
+    component: PickAddOnsStep,
+  },
+  {
+    identifier: "finishing-up",
+    component: FinishingUpStep,
+  },
+  {
+    identifier: "thanks",
     component: SelectPlanStep,
   },
 ];

@@ -1,10 +1,6 @@
-import { create } from "zustand";
+import type { PersonalInfo, Plan, AddOn } from "@/utils/types";
 
-type PersonalInfo = {
-  name: string;
-  email: string;
-  phoneNumber: string;
-};
+import { create } from "zustand";
 
 type WizardState = {
   currentStep: number;
@@ -12,7 +8,9 @@ type WizardState = {
   formData: {
     personalInfo: PersonalInfo;
 
-    selectedPlan: { name: "arcade" | "advanced" | "pro"; billing: "monthly" | "yearly" };
+    selectedPlan: Plan;
+
+    addOns: AddOn[];
   };
 
   nextStep: () => void;
@@ -29,6 +27,8 @@ export const useWizardState = create<WizardState>((set) => ({
     personalInfo: { name: "", email: "", phoneNumber: "" },
 
     selectedPlan: { name: "arcade", billing: "monthly" },
+
+    addOns: [],
   },
 
   nextStep: () => set((state) => ({ currentStep: state.currentStep + 1 })),

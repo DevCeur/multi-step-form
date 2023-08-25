@@ -16,7 +16,11 @@ export const PersonalInfoStep = () => {
   };
 
   return (
-    <StepWrapper onNextStep={handleUpdatePersonalInfo}>
+    <StepWrapper
+      title="Personal Info"
+      description="Please provide your name, email address, and phone number."
+      onNextStep={handleUpdatePersonalInfo}
+    >
       <div className="space-y-6">
         <TextInput
           label="Name"
