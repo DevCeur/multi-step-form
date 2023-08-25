@@ -23,18 +23,25 @@ export const TextInput = ({
   } = useFormContext();
 
   return (
-    <label>
-      <span>{label}</span>
+    <label className="flex flex-col">
+      <div className="mb-2 flex items-center justify-between">
+        <span className=" text-xs text-denim">{label}</span>
+
+        <ErrorMessage
+          name={name as string}
+          errors={errors}
+          render={({ message }) => (
+            <span className="text-xs font-medium text-red">{message}</span>
+          )}
+        />
+      </div>
 
       <input
+        className={`font-medium text-grey-default text-sm px-4 py-3 border ${
+          errors[name as string] ? "border-red" : "border-stroke-default"
+        } rounded-md outline-none transition-colors duration-200`}
         {...register(name as string, { ...validations, value: defaultValue })}
         {...inputProps}
-      />
-
-      <ErrorMessage
-        name={name as string}
-        errors={errors}
-        render={({ message }) => <span>{message}</span>}
       />
     </label>
   );
