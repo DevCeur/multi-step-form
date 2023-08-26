@@ -1,8 +1,7 @@
 import type { InputHTMLAttributes } from "react";
 
-import { useFormContext } from "react-hook-form";
-
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
+import Image from "next/image";
 
 type SelectPlanInputProps = {
   iconUrl: string;
@@ -18,31 +17,35 @@ export const SelectPlanInput = ({
   iconUrl,
   ...inputProps
 }: SelectPlanInputProps) => {
-  const { register } = useFormContext();
-
   const { selectedPlan } = useMultiStepForm((state) => ({
     selectedPlan: state.formData.selectedPlan,
   }));
 
   const formattedPrice = selectedPlan.billing === "monthly" ? price : price * 10;
 
+  const isPlanSelected = selectedPlan.identifier === identifier;
+
   return (
-    <label htmlFor={identifier}>
-      <div
-        className={`border ${
-          selectedPlan.identifier === identifier
-            ? "border-r-emerald-500"
-            : "border-green-50"
-        }`}
-      >
-        <span>{name}</span>
-        <span>{formattedPrice}</span>
+    <label
+      htmlFor={identifier}
+      className={`w-full p-4 flex justify-start items-center border ${
+        isPlanSelected ? "bg-grey-lightest border-purple" : "border-stroke-default"
+      } hover:border-purple rounded-lg transition-colors duration-200 cursor-pointer`}
+    >
+      <div className="relative w-10 h-10 mr-4">
+        <Image src={iconUrl} alt={identifier} layout="fill" style={{ objectFit: "contain" }} />
+      </div>
+
+      <div className="flex flex-col">
+        <span className="text-denim font-medium">{name}</span>
+        <span className="text-sm text-grey-default">${formattedPrice}/mo</span>
       </div>
 
       <input
-        {...register("selectedPlan")}
+        hidden
         id={identifier}
         type="radio"
+        name="selectedPlan"
         value={identifier}
         {...inputProps}
       />

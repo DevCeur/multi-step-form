@@ -18,6 +18,8 @@ type MultiStepFormState = {
   prevStep: () => void;
 
   updatePersonalInfo: (data: PersonalInfo) => void;
+
+  updateSelectedPlan: (data: Plan) => void;
 };
 
 export const useMultiStepForm = create<MultiStepFormState>((set) => ({
@@ -37,4 +39,7 @@ export const useMultiStepForm = create<MultiStepFormState>((set) => ({
 
   updatePersonalInfo: (data) =>
     set((state) => ({ formData: { ...state.formData, personalInfo: data } })),
+
+  updateSelectedPlan: (data) =>
+    set((state) => ({ formData: { ...state.formData, selectedPlan: data } })),
 }));
