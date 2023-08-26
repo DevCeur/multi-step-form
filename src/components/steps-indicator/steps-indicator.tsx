@@ -1,9 +1,11 @@
-import { useWizardState } from "@/lib/wizard-state";
+import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
 import { MULTI_FORM_STEPS } from "@/utils/enum";
 
 export const StepsIndicator = () => {
-  const { currentStep } = useWizardState((state) => ({ currentStep: state.currentStep }));
+  const { currentStep } = useMultiStepForm((state) => ({
+    currentStep: state.currentStep,
+  }));
 
   return (
     <div className="step-indicator absolute lg:relative w-full lg:w-[274px] h-44 lg:h-full pt-10 lg:px-8 flex lg:flex-col justify-center lg:justify-start items-start space-x-4 lg:space-x-0 lg:space-y-8 lg:rounded-xl">

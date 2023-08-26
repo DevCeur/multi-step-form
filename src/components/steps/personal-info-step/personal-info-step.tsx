@@ -1,12 +1,12 @@
 import { EMAIL_REGEX } from "@/utils/enum";
 
-import { useWizardState } from "@/lib/wizard-state";
+import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
 import { TextInput } from "@/components/text-input";
 import { StepWrapper } from "@/components/step-wrapper";
 
 export const PersonalInfoStep = () => {
-  const { updatePersonalInfo, personalInfo } = useWizardState((state) => ({
+  const { updatePersonalInfo, personalInfo } = useMultiStepForm((state) => ({
     personalInfo: state.formData.personalInfo,
     updatePersonalInfo: state.updatePersonalInfo,
   }));

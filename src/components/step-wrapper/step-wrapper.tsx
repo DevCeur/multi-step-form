@@ -2,7 +2,7 @@ import { useForm, FormProvider } from "react-hook-form";
 
 import { MULTI_FORM_STEPS } from "@/utils/enum";
 
-import { useWizardState } from "@/lib/wizard-state";
+import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
 type StepWrapperProps = {
   title?: string;
@@ -23,7 +23,7 @@ export const StepWrapper = ({
 
   const { handleSubmit: onSubmit } = formMethods;
 
-  const { currentStep, nextStep, prevStep } = useWizardState((state) => ({
+  const { currentStep, nextStep, prevStep } = useMultiStepForm((state) => ({
     currentStep: state.currentStep,
     nextStep: state.nextStep,
     prevStep: state.prevStep,

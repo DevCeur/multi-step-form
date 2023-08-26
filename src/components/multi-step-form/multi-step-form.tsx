@@ -2,11 +2,12 @@
 
 import { MULTI_FORM_STEPS } from "@/utils/enum";
 
-import { useWizardState } from "@/lib/wizard-state";
+import { useMultiStepForm } from "@/lib/multi-step-form-state";
+
 import { StepsIndicator } from "../steps-indicator";
 
 export const MultiStepForm = () => {
-  const currentStep = useWizardState((state) => state.currentStep);
+  const currentStep = useMultiStepForm((state) => state.currentStep);
 
   return (
     <div className="flex w-full max-w-5xl lg:h-[600px] lg:p-4 lg:bg-background-secondary rounded-xl overflow-hidden lg:shadow-default">
