@@ -41,7 +41,9 @@ export const SelectPlanInput = ({ name, price, identifier, iconUrl }: SelectPlan
 
       <div className="flex flex-col">
         <span className="text-denim font-medium">{name}</span>
-        <span className="text-sm text-grey-default">${formattedPrice}/mo</span>
+        <span className="text-sm text-grey-default">
+          ${formattedPrice}/{selectedPlan.billing === "monthly" ? "mo" : "yr"}
+        </span>
       </div>
 
       <input

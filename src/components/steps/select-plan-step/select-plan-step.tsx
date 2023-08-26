@@ -10,7 +10,7 @@ export const SelectPlanStep = () => {
       title="Select your plan"
       description="You have the option of monthly or yearly billing"
     >
-      <div className="flex flex-col lg:flex-row justify-center items-start space-y-3 lg:space-y-0 lg:space-x-4">
+      <div className="mb-6 lg:mb-8 flex flex-col lg:flex-row justify-center items-start space-y-3 lg:space-y-0 lg:space-x-4">
         {PLANS.map((plan) => (
           <SelectPlanInput key={plan.identifier} {...plan} />
         ))}

@@ -50,7 +50,7 @@ export const StepWrapper = ({
         onSubmit={handleSubmit}
         className="w-full h-screen lg:w-[450px] lg:h-full pt-28 lg:pt-0 px-4 lg:px-0 mx-auto flex flex-col justify-between"
       >
-        <div className="px-6 py-8 lg:pt-14 lg:px-0 lg:pb-0 bg-background-secondary rounded-xl shadow-default lg:shadow-none">
+        <div className="mb-6 px-6 py-8 lg:pt-14 lg:px-0 lg:pb-0 bg-background-secondary rounded-xl shadow-default lg:shadow-none">
           {!isLastStep && (
             <div className="mb-6">
               <h2 className="text-denim text-2xl lg:text-4xl font-bold mb-2">{title}</h2>
