@@ -6,18 +6,22 @@ import { SelectPlanStep } from "@/components/steps/select-plan-step";
 export const MULTI_FORM_STEPS = [
   {
     identifier: "personal-info",
+    shortTitle: "Your Info",
     component: PersonalInfoStep,
   },
   {
     identifier: "select-plan",
+    shortTitle: "Select Plan",
     component: SelectPlanStep,
   },
   {
     identifier: "pick-add-ons",
+    shortTitle: "Add-ons",
     component: PickAddOnsStep,
   },
   {
     identifier: "finishing-up",
+    shortTitle: "Summary",
     component: FinishingUpStep,
   },
   {
