@@ -2,7 +2,7 @@ import type { PersonalInfo, Plan, AddOn } from "@/utils/types";
 
 import { create } from "zustand";
 
-type WizardState = {
+type MultiStepFormState = {
   currentStep: number;
 
   formData: {
@@ -18,15 +18,17 @@ type WizardState = {
   prevStep: () => void;
 
   updatePersonalInfo: (data: PersonalInfo) => void;
+
+  updateSelectedPlan: (data: Plan) => void;
 };
 
-export const useWizardState = create<WizardState>((set) => ({
-  currentStep: 0,
+export const useMultiStepForm = create<MultiStepFormState>((set) => ({
+  currentStep: 1,
 
   formData: {
     personalInfo: { name: "", email: "", phoneNumber: "" },
 
-    selectedPlan: { name: "arcade", billing: "monthly" },
+    selectedPlan: { identifier: "arcade", billing: "monthly" },
 
     addOns: [],
   },
@@ -37,4 +39,7 @@ export const useWizardState = create<WizardState>((set) => ({
 
   updatePersonalInfo: (data) =>
     set((state) => ({ formData: { ...state.formData, personalInfo: data } })),
+
+  updateSelectedPlan: (data) =>
+    set((state) => ({ formData: { ...state.formData, selectedPlan: data } })),
 }));

@@ -30,4 +30,10 @@ export const MULTI_FORM_STEPS = [
   },
 ];
 
+export const PLANS = [
+  { iconUrl: "/images/icon-arcade.svg", identifier: "arcade", name: "Arcade", price: 9 },
+  { iconUrl: "/images/icon-advanced.svg", identifier: "advanced", name: "Advanced", price: 12 },
+  { iconUrl: "/images/icon-pro.svg", identifier: "pro", name: "Pro", price: 15 },
+];
+
 export const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

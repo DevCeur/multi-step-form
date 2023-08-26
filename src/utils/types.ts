@@ -5,7 +5,7 @@ export type PersonalInfo = {
 };
 
 export type Plan = {
-  name: "arcade" | "advanced" | "pro";
+  identifier: "arcade" | "advanced" | "pro";
   billing: "monthly" | "yearly";
 };
 
