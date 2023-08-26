@@ -1,37 +1,23 @@
-import { ChangeEvent, useState } from "react";
-
 import { PLANS } from "@/utils/enum";
 
 import { StepWrapper } from "@/components/step-wrapper";
 import { SelectPlanInput } from "@/components/select-plan-input";
-import { useMultiStepForm } from "@/lib/multi-step-form-state";
+import { SelectPlanBillingInput } from "@/components/select-plan-billing-input";
 
 export const SelectPlanStep = () => {
-  const { updateSelectedPlan, selectedPlan } = useMultiStepForm((state) => ({
-    selectedPlan: state.formData.selectedPlan,
-    updateSelectedPlan: state.updateSelectedPlan,
-  }));
-
-  const handleSelectPlan = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-
-    updateSelectedPlan({
-      identifier: e.target.value as any,
-      billing: selectedPlan.billing,
-    });
-  };
-
-  const handleSelectPlanBilling = () => {};
-
   return (
     <StepWrapper
       title="Select your plan"
       description="You have the option of monthly or yearly billing"
     >
-      <div className="flex flex-col justify-center items-start space-y-3">
+      <div className="flex flex-col lg:flex-row justify-center items-start space-y-3 lg:space-y-0 lg:space-x-4">
         {PLANS.map((plan) => (
-          <SelectPlanInput key={plan.identifier} onChange={handleSelectPlan} {...plan} />
+          <SelectPlanInput key={plan.identifier} {...plan} />
         ))}
+      </div>
+
+      <div>
+        <SelectPlanBillingInput />
       </div>
     </StepWrapper>
   );
