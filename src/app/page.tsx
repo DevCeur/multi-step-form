@@ -1,11 +1,11 @@
 "use client";
 
-import { Wizard } from "@/components/wizard";
+import { MultiStepForm } from "@/components/multi-step-form";
 
 export default function HomePage() {
   return (
-    <main>
-      <Wizard />
+    <main className="lg:h-screen flex justify-start lg:justify-center items-center">
+      <MultiStepForm />
     </main>
   );
 }
