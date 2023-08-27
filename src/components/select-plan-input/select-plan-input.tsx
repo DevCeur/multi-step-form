@@ -12,7 +12,12 @@ type SelectPlanInputProps = {
   price: number;
 };
 
-export const SelectPlanInput = ({ name, price, identifier, iconUrl }: SelectPlanInputProps) => {
+export const SelectPlanInput = ({
+  name,
+  price,
+  identifier,
+  iconUrl,
+}: SelectPlanInputProps) => {
   const { updateSelectedPlan, selectedPlan } = useMultiStepForm((state) => ({
     selectedPlan: state.formData.selectedPlan,
     updateSelectedPlan: state.updateSelectedPlan,
@@ -27,7 +32,8 @@ export const SelectPlanInput = ({ name, price, identifier, iconUrl }: SelectPlan
     });
   };
 
-  const formattedPrice = selectedPlan.billing === "monthly" ? price : price * TOTAL_YEARLY_MONTHS;
+  const formattedPrice =
+    selectedPlan.billing === "monthly" ? price : price * TOTAL_YEARLY_MONTHS;
 
   const isPlanSelected = selectedPlan.identifier === identifier;
 
@@ -39,7 +45,12 @@ export const SelectPlanInput = ({ name, price, identifier, iconUrl }: SelectPlan
       } hover:border-purple rounded-lg transition-colors duration-200 cursor-pointer`}
     >
       <div className="relative w-10 h-10 mr-4 lg:mr-0 lg:mb-10">
-        <Image src={iconUrl} alt={identifier} layout="fill" style={{ objectFit: "contain" }} />
+        <Image
+          src={iconUrl}
+          alt={identifier}
+          layout="fill"
+          style={{ objectFit: "contain" }}
+        />
       </div>
 
       <div className="flex flex-col">

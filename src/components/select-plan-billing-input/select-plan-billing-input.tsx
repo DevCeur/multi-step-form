@@ -3,16 +3,13 @@ import type { ChangeEvent } from "react";
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
 export const SelectPlanBillingInput = () => {
-  const { selectedPlan, updateSelectedPlan } = useMultiStepForm((state) => ({
+  const { selectedPlan, updateSelectedPlanBilling } = useMultiStepForm((state) => ({
     selectedPlan: state.formData.selectedPlan,
-    updateSelectedPlan: state.updateSelectedPlan,
+    updateSelectedPlanBilling: state.updateSelectedPlanBilling,
   }));
 
   const handleSelectPlanBilling = (e: ChangeEvent<HTMLInputElement>) => {
-    updateSelectedPlan({
-      identifier: selectedPlan.identifier,
-      billing: e.target.checked ? "monthly" : "yearly",
-    });
+    updateSelectedPlanBilling(e.target.checked ? "monthly" : "yearly");
   };
 
   return (
