@@ -11,5 +11,7 @@ export type Plan = {
 
 export type AddOn = {
   name: string;
+  identifier: string;
+  description: string;
   price: number;
 };

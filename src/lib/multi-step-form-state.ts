@@ -20,10 +20,12 @@ type MultiStepFormState = {
   updatePersonalInfo: (data: PersonalInfo) => void;
 
   updateSelectedPlan: (data: Plan) => void;
+
+  updateAddOns: (data: { removeAddOn?: string; newAddOn?: AddOn }) => void;
 };
 
 export const useMultiStepForm = create<MultiStepFormState>((set) => ({
-  currentStep: 1,
+  currentStep: 2,
 
   formData: {
     personalInfo: { name: "", email: "", phoneNumber: "" },
@@ -42,4 +44,19 @@ export const useMultiStepForm = create<MultiStepFormState>((set) => ({
 
   updateSelectedPlan: (data) =>
     set((state) => ({ formData: { ...state.formData, selectedPlan: data } })),
+
+  updateAddOns: ({ newAddOn, removeAddOn }) =>
+    set((state) => {
+      let addOns = state.formData.addOns;
+
+      if (newAddOn) {
+        addOns.push(newAddOn);
+      }
+
+      if (removeAddOn) {
+        addOns = addOns.filter((addOn) => addOn.identifier !== removeAddOn);
+      }
+
+      return { formData: { ...state.formData, addOns } };
+    }),
 }));

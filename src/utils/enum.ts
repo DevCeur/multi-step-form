@@ -36,4 +36,25 @@ export const PLANS = [
   { iconUrl: "/images/icon-pro.svg", identifier: "pro", name: "Pro", price: 15 },
 ];
 
+export const ADD_ONS = [
+  {
+    identifier: "online-service",
+    name: "Online service",
+    description: "Access to multiplayer games",
+    price: 1,
+  },
+  {
+    identifier: "larger-storage",
+    name: "Larger storage",
+    description: "Extra 1TB of cloud save",
+    price: 2,
+  },
+  {
+    identifier: "customizable-profile",
+    name: "Customizable profile",
+    description: "Custom theme on your profile",
+    price: 2,
+  },
+];
+
 export const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
