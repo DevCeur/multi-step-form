@@ -63,10 +63,15 @@ export const StepWrapper = ({
 
         {!isLastStep && (
           <div
-            className={`-mx-4 p-4 bg-white flex ${isFirstStep ? "justify-end" : "justify-between"}`}
+            className={`-mx-4 p-4 bg-white flex ${
+              isFirstStep ? "justify-end" : "justify-between"
+            }`}
           >
             {!isFirstStep && (
-              <button onClick={handlePrevStep} className="text-grey-default text-sm font-medium">
+              <button
+                onClick={handlePrevStep}
+                className="text-grey-default text-sm font-medium"
+              >
                 Go Back
               </button>
             )}

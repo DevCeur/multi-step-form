@@ -29,7 +29,7 @@ type MultiStepFormState = {
 };
 
 export const useMultiStepForm = create<MultiStepFormState>((set) => ({
-  currentStep: 0,
+  currentStep: 4,
 
   formData: {
     personalInfo: { name: "", email: "", phoneNumber: "" },

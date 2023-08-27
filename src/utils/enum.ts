@@ -2,6 +2,7 @@ import { FinishingUpStep } from "@/components/steps/finishing-up-step";
 import { PersonalInfoStep } from "@/components/steps/personal-info-step";
 import { PickAddOnsStep } from "@/components/steps/pick-add-ons-step";
 import { SelectPlanStep } from "@/components/steps/select-plan-step";
+import { ThanksStep } from "@/components/steps/thanks-step";
 
 export const STEP = {
   PERSONAL_INFO: "personal-info",
@@ -34,13 +35,18 @@ export const FORM_STEPS = [
   },
   {
     identifier: STEP.THANKS,
-    component: SelectPlanStep,
+    component: ThanksStep,
   },
 ];
 
 export const PLANS = [
   { iconUrl: "/images/icon-arcade.svg", identifier: "arcade", name: "Arcade", price: 9 },
-  { iconUrl: "/images/icon-advanced.svg", identifier: "advanced", name: "Advanced", price: 12 },
+  {
+    iconUrl: "/images/icon-advanced.svg",
+    identifier: "advanced",
+    name: "Advanced",
+    price: 12,
+  },
   { iconUrl: "/images/icon-pro.svg", identifier: "pro", name: "Pro", price: 15 },
 ];
 

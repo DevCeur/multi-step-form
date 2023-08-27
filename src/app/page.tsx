@@ -4,7 +4,7 @@ import { MultiStepForm } from "@/components/multi-step-form";
 
 export default function HomePage() {
   return (
-    <main className="w-full lg:h-screen flex justify-center items-center">
+    <main className="lg:h-screen flex justify-start lg:justify-center items-center">
       <MultiStepForm />
     </main>
   );
