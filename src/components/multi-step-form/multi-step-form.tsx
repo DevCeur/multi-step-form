@@ -1,6 +1,6 @@
 "use client";
 
-import { MULTI_FORM_STEPS } from "@/utils/enum";
+import { FORM_STEPS } from "@/utils/enum";
 
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
@@ -14,7 +14,7 @@ export const MultiStepForm = () => {
       <StepsIndicator />
 
       <div className="mx-auto absolute lg:relative h-screen lg:h-auto">
-        {MULTI_FORM_STEPS.map(({ identifier, component: Component }, index) => {
+        {FORM_STEPS.map(({ identifier, component: Component }, index) => {
           return currentStep === index && <Component key={identifier} />;
         })}
       </div>

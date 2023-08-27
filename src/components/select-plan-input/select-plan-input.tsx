@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ChangeEvent } from "react";
 
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
+import { TOTAL_YEARLY_MONTHS } from "@/utils/enum";
 
 type SelectPlanInputProps = {
   iconUrl: string;
@@ -19,12 +20,14 @@ export const SelectPlanInput = ({ name, price, identifier, iconUrl }: SelectPlan
 
   const handleSelectPlan = (e: ChangeEvent<HTMLInputElement>) => {
     updateSelectedPlan({
+      name,
+      price,
       identifier: e.target.value as any,
       billing: selectedPlan.billing,
     });
   };
 
-  const formattedPrice = selectedPlan.billing === "monthly" ? price : price * 10;
+  const formattedPrice = selectedPlan.billing === "monthly" ? price : price * TOTAL_YEARLY_MONTHS;
 
   const isPlanSelected = selectedPlan.identifier === identifier;
 

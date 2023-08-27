@@ -5,8 +5,10 @@ export type PersonalInfo = {
 };
 
 export type Plan = {
+  name: string;
   identifier: "arcade" | "advanced" | "pro";
   billing: "monthly" | "yearly";
+  price: number;
 };
 
 export type AddOn = {

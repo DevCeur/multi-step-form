@@ -1,6 +1,6 @@
 import { useForm, FormProvider } from "react-hook-form";
 
-import { MULTI_FORM_STEPS } from "@/utils/enum";
+import { FORM_STEPS } from "@/utils/enum";
 
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
@@ -30,7 +30,7 @@ export const StepWrapper = ({
   }));
 
   const isFirstStep = currentStep == 0;
-  const isLastStep = currentStep === MULTI_FORM_STEPS.length - 1;
+  const isLastStep = currentStep === FORM_STEPS.length - 1;
 
   const handleSubmit = onSubmit((data) => {
     if (handleNextStep) {

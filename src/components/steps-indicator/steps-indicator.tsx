@@ -1,6 +1,6 @@
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
 
-import { MULTI_FORM_STEPS } from "@/utils/enum";
+import { FORM_STEPS } from "@/utils/enum";
 
 export const StepsIndicator = () => {
   const { currentStep } = useMultiStepForm((state) => ({
@@ -9,11 +9,10 @@ export const StepsIndicator = () => {
 
   return (
     <div className="step-indicator absolute lg:relative w-full lg:w-[274px] h-44 lg:h-full pt-10 lg:px-8 flex lg:flex-col justify-center lg:justify-start items-start space-x-4 lg:space-x-0 lg:space-y-8 lg:rounded-xl">
-      {MULTI_FORM_STEPS.slice(0, -1).map(({ identifier, shortTitle }, index) => {
+      {FORM_STEPS.slice(0, -1).map(({ identifier, shortTitle }, index) => {
         const isActiveStep = currentStep === index;
         const showLastActive =
-          index === MULTI_FORM_STEPS.length - 2 &&
-          currentStep === MULTI_FORM_STEPS.length - 1;
+          index === FORM_STEPS.length - 2 && currentStep === FORM_STEPS.length - 1;
 
         return (
           <div key={identifier} className="flex justify-center items-center space-x-4">

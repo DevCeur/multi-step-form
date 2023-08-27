@@ -3,29 +3,37 @@ import { PersonalInfoStep } from "@/components/steps/personal-info-step";
 import { PickAddOnsStep } from "@/components/steps/pick-add-ons-step";
 import { SelectPlanStep } from "@/components/steps/select-plan-step";
 
-export const MULTI_FORM_STEPS = [
+export const STEP = {
+  PERSONAL_INFO: "personal-info",
+  SELECT_PLAN: "select-plan",
+  PICK_ADD_ONS: "pick-add-ons",
+  FINISHING_UP: "finishing-up",
+  THANKS: "thanks",
+};
+
+export const FORM_STEPS = [
   {
-    identifier: "personal-info",
+    identifier: STEP.PERSONAL_INFO,
     shortTitle: "Your Info",
     component: PersonalInfoStep,
   },
   {
-    identifier: "select-plan",
+    identifier: STEP.SELECT_PLAN,
     shortTitle: "Select Plan",
     component: SelectPlanStep,
   },
   {
-    identifier: "pick-add-ons",
+    identifier: STEP.PICK_ADD_ONS,
     shortTitle: "Add-ons",
     component: PickAddOnsStep,
   },
   {
-    identifier: "finishing-up",
+    identifier: STEP.FINISHING_UP,
     shortTitle: "Summary",
     component: FinishingUpStep,
   },
   {
-    identifier: "thanks",
+    identifier: STEP.THANKS,
     component: SelectPlanStep,
   },
 ];
@@ -56,5 +64,7 @@ export const ADD_ONS = [
     price: 2,
   },
 ];
+
+export const TOTAL_YEARLY_MONTHS = 10;
 
 export const EMAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;

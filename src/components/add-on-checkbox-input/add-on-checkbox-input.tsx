@@ -2,6 +2,7 @@ import type { AddOn } from "@/utils/types";
 
 import { useMultiStepForm } from "@/lib/multi-step-form-state";
 import Image from "next/image";
+import { TOTAL_YEARLY_MONTHS } from "@/utils/enum";
 
 type AddOnCheckboxInputProps = {
   addOn: AddOn;
@@ -15,7 +16,8 @@ export const AddOnCheckboxInput = ({ addOn }: AddOnCheckboxInputProps) => {
     updateAddOns: state.updateAddOns,
   }));
 
-  const formattedPrice = planBilling === "monthly" ? addOn.price : addOn.price * 10;
+  const formattedPrice =
+    planBilling === "monthly" ? addOn.price : addOn.price * TOTAL_YEARLY_MONTHS;
 
   const isAddOnSelected = addOnsIdentifiers.includes(addOn.identifier);
 

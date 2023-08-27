@@ -1,5 +1,7 @@
 import type { PersonalInfo, Plan, AddOn } from "@/utils/types";
 
+import { FORM_STEPS, PLANS } from "@/utils/enum";
+
 import { create } from "zustand";
 
 type MultiStepFormState = {
@@ -17,6 +19,8 @@ type MultiStepFormState = {
 
   prevStep: () => void;
 
+  gotToStep: (stepIdentifier: string) => void;
+
   updatePersonalInfo: (data: PersonalInfo) => void;
 
   updateSelectedPlan: (data: Plan) => void;
@@ -25,12 +29,12 @@ type MultiStepFormState = {
 };
 
 export const useMultiStepForm = create<MultiStepFormState>((set) => ({
-  currentStep: 2,
+  currentStep: 0,
 
   formData: {
     personalInfo: { name: "", email: "", phoneNumber: "" },
 
-    selectedPlan: { identifier: "arcade", billing: "monthly" },
+    selectedPlan: { name: "Arcade", identifier: "arcade", billing: "monthly", price: 9 },
 
     addOns: [],
   },
@@ -38,6 +42,11 @@ export const useMultiStepForm = create<MultiStepFormState>((set) => ({
   nextStep: () => set((state) => ({ currentStep: state.currentStep + 1 })),
 
   prevStep: () => set((state) => ({ currentStep: state.currentStep - 1 })),
+
+  gotToStep: (stepIdentifier) =>
+    set(() => ({
+      currentStep: FORM_STEPS.findIndex((steps) => steps.identifier === stepIdentifier),
+    })),
 
   updatePersonalInfo: (data) =>
     set((state) => ({ formData: { ...state.formData, personalInfo: data } })),
